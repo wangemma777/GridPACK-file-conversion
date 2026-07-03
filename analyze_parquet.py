@@ -19,10 +19,7 @@ def example_analysis(lf: pl.LazyFrame):
         .limit(10)
     )
 
-
-def main():
-    parquet_dir = Path("ca_parquet")
-
+def main(parquet_dir: Path):
     if not parquet_dir.exists():
         raise FileNotFoundError("Parquet directory not found")
 
@@ -37,4 +34,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main(Path("ca_parquet"))
