@@ -26,10 +26,10 @@ def main():
     parser.add_argument(
         "--meta-cols",
         nargs="+",
-        default=["area", "area_name"],
-        help="Metadata columns to add, e.g. area area_name zone",
+        default=["area", "area_name", "base_kv"],
+        help="Metadata columns to add, e.g. area area_name base_kv zone",
     )
-
+    
     args = parser.parse_args()
 
     print("Scanning branch parquet...")
@@ -81,3 +81,13 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+#example run script:
+#python merge_polars.py \
+# --branches ca_flat_parquet \
+# --metadata ca_buses_parquet \
+# --output merged_branches_with_area.parquet \
+# --from-col from_bus \
+# --to-col to_bus \
+# --meta-key bus_id \
+# --meta-cols area area_name base_kv
